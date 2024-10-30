@@ -74,7 +74,8 @@ int main(){
               switchArbolesBinarios();
             break;
             case 2:
-              printf("En construccion\n");
+              system("clear");
+              switchABB();
             break;
             case 3:
               system("clear");

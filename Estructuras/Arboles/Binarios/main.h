@@ -42,17 +42,17 @@ void impresionPreOrden(struct NodoDoble *Raiz){
 //Algoritmo 3
 void impresionInOrden(struct NodoDoble *Raiz){
     if(Raiz != NULL){
-        impresionPreOrden(Raiz->LigaIzq);
+        impresionInOrden(Raiz->LigaIzq);
         printf("%i ",Raiz->Info);
-        impresionPreOrden(Raiz->LigaDer);
+        impresionInOrden(Raiz->LigaDer);
     }
 }
 
 //Algoritmo 4
 void impresionPostOrden(struct NodoDoble *Raiz){
     if(Raiz != NULL){
-        impresionPreOrden(Raiz->LigaIzq);
-        impresionPreOrden(Raiz->LigaDer);
+        impresionPostOrden(Raiz->LigaIzq);
+        impresionPostOrden(Raiz->LigaDer);
         printf("%i ",Raiz->Info);
     }
 }
