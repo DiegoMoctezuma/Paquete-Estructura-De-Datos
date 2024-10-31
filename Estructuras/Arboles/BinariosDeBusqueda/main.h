@@ -96,11 +96,11 @@ void buscarElemento(struct NodoDoble *Raiz) {
 
 // Función que obtiene el mínimo de un árbol o sub-árbol
 struct NodoDoble* obtenerMinimo(struct NodoDoble* Nodo) {
-    struct NodoDoble* Rafa = Nodo;
-    while (Rafa && Rafa->LigaIzq != NULL) {
-        Rafa = Rafa->LigaIzq;
+    struct NodoDoble* Actual = Nodo;
+    while (Actual && Actual->LigaIzq != NULL) {
+        Actual = Actual->LigaIzq;
     }
-    return Rafa;
+    return Actual;
 }
 
 // Función para encontrar el sucesor de un nodo
