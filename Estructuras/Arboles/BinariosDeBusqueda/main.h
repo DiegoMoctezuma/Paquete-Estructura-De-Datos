@@ -125,7 +125,71 @@ struct NodoDoble* encuentraSucesor(struct NodoDoble *Nodo, struct NodoDoble *Rai
     return Sucesor;
 }
 
-//Algoritmo 3 eliminacion *** Pendiente ***
+//Algoritmo 3 eliminacion 
+void eliminaNodo(struct NodoDoble **Raiz) {
+    if (*Raiz == NULL) {
+        printf("No hay nada que eliminar\n");
+        return;
+    }
+
+    int x;
+    printf("Inserte el dato a eliminar: ");
+    scanf("%d", &x);
+    
+    struct NodoDoble *AUX1 = NULL, *AUX2 = NULL;
+    busqueda(*Raiz, x, &AUX1, &AUX2);
+    //AUX1 ES EL NODO A ELIMINAR, AUX2 ES SU PAPA
+
+    if (AUX1 == NULL) {
+        printf("El dato no esta en el arbol :(\n");
+        return;
+    }
+    // CASO 1: NODO TERMINAL (sin hijos)
+    if (AUX1->LigaIzq == NULL && AUX1->LigaDer == NULL) {
+        if (AUX2 == NULL) { // Es la raíz
+            *Raiz = NULL;
+        } else {
+            if (AUX2->LigaIzq == AUX1) {
+                AUX2->LigaIzq = NULL;
+            } else {
+                AUX2->LigaDer = NULL;
+            }
+        }
+        free(AUX1);
+    }
+    // CASO 2: UN SOLO HIJO
+    else if (AUX1->LigaIzq == NULL || AUX1->LigaDer == NULL) {
+        struct NodoDoble *Hijo = NULL;
+        
+        if (AUX1->LigaIzq != NULL){
+            *Hijo = *AUX1->LigaIzq;
+        } else {
+            *Hijo = *AUX1->LigaDer;
+        }
+
+        if (AUX2 == NULL) { // Es la raíz
+            *Raiz = Hijo;
+
+        } else {
+
+            if (AUX2->LigaIzq == AUX1) {
+                AUX2->LigaIzq = Hijo;
+            } else {
+
+                AUX2->LigaDer = Hijo;
+            }
+        }
+        free(AUX1);
+    }
+    // CASO 3: DOS HIJOS
+    else {
+        struct NodoDoble *sucesor = encuentraSucesor(AUX1, *Raiz);
+        //SE CAMBIA LA INFO DEL SUCESOR A LA POSICION DEL ELEMENTO A ELIMINAR
+        AUX1->Info = sucesor->Info;
+        //BORRAMOS EL SUCESOR
+        eliminaNodo(sucesor);
+    }
+}
 
 //Algoritmo liberar memoria
 void liberarMemoriaABB(struct NodoDoble *Raiz){
