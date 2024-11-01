@@ -132,11 +132,7 @@ struct NodoDoble* encuentraSucesor(struct NodoDoble *Nodo, struct NodoDoble *Rai
     return Sucesor;
 }
 
-void eliminaNodo(struct NodoDoble **Raiz) {
-    int x;
-    printf("Inserte el dato a eliminar: ");
-    scanf("%d", &x);
-    
+void eliminaNodo(struct NodoDoble **Raiz, int x) {
     struct NodoDoble *AUX1 = NULL, *AUX2 = NULL;
     busqueda(*Raiz, x, &AUX1, &AUX2);
     //AUX1 ES EL NODO A ELIMINAR, AUX2 ES SU PAPA
@@ -160,23 +156,14 @@ void eliminaNodo(struct NodoDoble **Raiz) {
     }
     // CASO 2: UN SOLO HIJO
     else if (AUX1->LigaIzq == NULL || AUX1->LigaDer == NULL) {
-        struct NodoDoble *Hijo = NULL;
-        
-        if (AUX1->LigaIzq != NULL){
-            *Hijo = *AUX1->LigaIzq;
-        } else {
-            *Hijo = *AUX1->LigaDer;
-        }
+        struct NodoDoble *Hijo = (AUX1->LigaIzq != NULL) ? AUX1->LigaIzq : AUX1->LigaDer;
 
         if (AUX2 == NULL) { // Es la raíz
             *Raiz = Hijo;
-
         } else {
-
             if (AUX2->LigaIzq == AUX1) {
                 AUX2->LigaIzq = Hijo;
             } else {
-
                 AUX2->LigaDer = Hijo;
             }
         }
@@ -185,10 +172,8 @@ void eliminaNodo(struct NodoDoble **Raiz) {
     // CASO 3: DOS HIJOS
     else {
         struct NodoDoble *sucesor = encuentraSucesor(AUX1, *Raiz);
-        //SE CAMBIA LA INFO DEL SUCESOR A LA POSICION DEL ELEMENTO A ELIMINAR
         AUX1->Info = sucesor->Info;
-        //BORRAMOS EL SUCESOR
-        eliminaNodo(&sucesor);
+        eliminaNodo(&(AUX1->LigaDer), sucesor->Info);
     }
 }
 
@@ -222,7 +207,10 @@ void switchABB(){
             break;
             case 4:
                 system("clear");
-                impresionABB(Raiz);
+                int x;
+                printf("Inserte el dato a eliminar: ");
+                scanf("%d", &x);
+                eliminaNodo(&Raiz, x);
             case 5:
                 system("clear");
             break;
