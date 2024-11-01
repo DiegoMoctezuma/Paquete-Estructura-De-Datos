@@ -156,7 +156,12 @@ void eliminaNodo(struct NodoDoble **Raiz, int x) {
     }
     // CASO 2: UN SOLO HIJO
     else if (AUX1->LigaIzq == NULL || AUX1->LigaDer == NULL) {
-        struct NodoDoble *Hijo = (AUX1->LigaIzq != NULL) ? AUX1->LigaIzq : AUX1->LigaDer;
+        struct NodoDoble *Hijo;
+        if (AUX1->LigaIzq != NULL) {
+            Hijo = AUX1->LigaIzq;
+        } else {
+            Hijo = AUX1->LigaDer;
+        }
 
         if (AUX2 == NULL) { // Es la raíz
             *Raiz = Hijo;
