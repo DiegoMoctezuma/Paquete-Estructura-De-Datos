@@ -206,20 +206,23 @@ void switchABB(){
                 buscarElemento(Raiz);
             break;
             case 3:
-                //impresionABB(Raiz);
-                system("clear");
-                eliminaNodo(&Raiz);
-            break;
-            case 4:
                 system("clear");
                 int x;
                 printf("Inserte el dato a eliminar: ");
                 scanf("%d", &x);
                 eliminaNodo(&Raiz, x);
+            break;
+            case 4:
+                system("clear");
+                printf("Arbol ordenado: ");
+                impresionABB(Raiz);
+                printf("\n");
             case 5:
                 system("clear");
             break;
-            
+            default:
+                system("clear");
+                printf("Opcion no valida\n");
         }
     }while(subEstructura != 5);
     liberarMemoriaABB(Raiz);
