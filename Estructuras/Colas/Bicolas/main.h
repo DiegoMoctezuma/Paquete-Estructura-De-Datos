@@ -17,7 +17,7 @@ void PushFinal(struct Nodo **P){
         scanf("%i",&Q->Liga->Info);
         Q->Liga->Liga = NULL;
     }
-    system("clear");
+    system("cls");
 }
 
 //Algoritmo 2
@@ -35,23 +35,23 @@ void PushPrincipal(struct Nodo **P){
         Q->Liga = *P;
         *P = Q;
     }
-    system("clear");
+    system("cls");
 }
 
 //Algoritmo 3
 void PopPrincipio(struct Nodo **P){
     if(*P == NULL){ //No hay elementos
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos en la lista.\n");
     }else if((*P)->Liga == NULL){//Solo hay un elemento
         free(*P);
         *P = NULL;
-        system("clear");
+        system("cls");
     }else{ //Más de un elemento
         struct Nodo *Q = *P;
         *P = Q->Liga;
         free(Q);
-        system("clear");
+        system("cls");
     }
 }
 
@@ -59,7 +59,7 @@ void PopPrincipio(struct Nodo **P){
 void PopFinal(struct Nodo **P){
     struct Nodo *Q = NULL, *S = NULL;
     if(*P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos que eliminar\n");
     }else{
         if((*P)->Liga == NULL){ //Solo hay un elemento
@@ -76,15 +76,15 @@ void PopFinal(struct Nodo **P){
             free(Q); 
             S->Liga = NULL;
         }
-        system("clear");
+        system("cls");
     }
 }
 
 //Algoritmo 5
 void imprimirBicola(struct Nodo *P){
-    system("clear");
+    system("cls");
     if(P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else {
         struct Nodo *Q = P;
@@ -101,7 +101,7 @@ void imprimirBicola(struct Nodo *P){
 void switchBicolas(){
     struct Nodo *P = NULL;
     int bicola,algoritmo,res;
-    system("clear");
+    system("cls");
     do{
         printf("\n(1) Bicola entrada restringida\n");
         printf("(2) Bicola salida restringida\n");
@@ -111,7 +111,7 @@ void switchBicolas(){
         switch(bicola){
             //Bicola entrada restringida
             case 1:
-                system("clear");
+                system("cls");
                 do{
                     printf("\n(1) Push\n");
                     printf("(2) POP\n");
@@ -124,7 +124,7 @@ void switchBicolas(){
                             PushFinal(&P);
                         break;
                         case 2:
-                            system("clear");
+                            system("cls");
                             printf("(1) Pop por el principio\n(2) Pop por el final");
                             printf("\nSeleccione: ");
                             scanf("%i",&res);
@@ -136,7 +136,7 @@ void switchBicolas(){
                                     PopFinal(&P);
                                 break;
                                 default:
-                                    system("clear");
+                                    system("cls");
                                     printf("\nOpcion no valida.");
                             }
                         break;
@@ -144,7 +144,7 @@ void switchBicolas(){
                             imprimirBicola(P);
                         break;
                         case 4:
-                            system("clear");
+                            system("cls");
                         break;
                         default:
                             printf("\nOpcion no valida.");
@@ -153,7 +153,7 @@ void switchBicolas(){
             break;
             //Bicola salida restringida
             case 2:
-                system("clear");
+                system("cls");
                 do{
                     printf("\n(1) Push\n");
                     printf("(2) POP\n");
@@ -163,7 +163,7 @@ void switchBicolas(){
                     scanf("%i",&algoritmo);
                     switch(algoritmo){
                         case 1:
-                            system("clear");
+                            system("cls");
                             printf("(1) Push por el principio\n(2) Push por el final");
                             printf("\nSeleccione: ");
                             scanf("%i",&res);
@@ -175,7 +175,7 @@ void switchBicolas(){
                                     PushFinal(&P);
                                 break;
                                 default:
-                                    system("clear");
+                                    system("cls");
                                     printf("\nOpcion no valida.");
                             }
                         break;
@@ -186,7 +186,7 @@ void switchBicolas(){
                             imprimirBicola(P);
                         break;
                         case 4:
-                            system("clear");
+                            system("cls");
                         break;
                         default:
                             printf("\nOpcion no valida.");
@@ -194,7 +194,7 @@ void switchBicolas(){
                 }while(algoritmo != 4);
             break;
             case 3:
-                system("clear");
+                system("cls");
             break;
             default:
             printf("Opcion no valida.\n");

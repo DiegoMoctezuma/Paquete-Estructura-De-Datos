@@ -7,7 +7,7 @@ int main(){
     printf("\n(1) Listas \n(2) Pilas \n(3) Colas \n(4) Arboles \n(5)Salir\n");
     printf("Seleccione: ");
     scanf("%i",&estructura);
-    system("clear");
+    system("cls");
 
     switch(estructura){
       //LISTAS
@@ -26,10 +26,10 @@ int main(){
               switchListasCirculares();
             break;
             case 4:
-              system("clear");
+              system("cls");
             break;
             default:
-              system("clear");
+              system("cls");
               printf("Opcion no valida.\n");
           }
         }while(subEstructura != 4);
@@ -56,10 +56,10 @@ int main(){
               switchColasPrioridad();
             break;
             case 4:
-              system("clear");
+              system("cls");
             break;
             default:
-              system("clear");
+              system("cls");
               printf("Opcion no valida.\n");
           }
         }while(subEstructura != 4);
@@ -70,18 +70,18 @@ int main(){
           scanf("%i",&subEstructura);
           switch(subEstructura){
             case 1:
-              system("clear");
+              system("cls");
               switchArbolesBinarios();
             break;
             case 2:
-              system("clear");
+              system("cls");
               switchABB();
             break;
             case 3:
-              system("clear");
+              system("cls");
             break;
             default:
-              system("clear");
+              system("cls");
               printf("Opcion no valida.\n");
           }
         }while(subEstructura != 3);

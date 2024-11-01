@@ -6,7 +6,7 @@ void creacionListaAgregarFinal(struct Nodo **P){
     char resp;
 
     *P = (struct Nodo*)malloc(sizeof(struct Nodo));
-    system("clear");
+    system("cls");
     printf("Ingrese la informacion del nodo (entero): ");
     scanf("%i",&(*P)->Info);
     (*P)->Liga = *P;
@@ -24,14 +24,14 @@ void creacionListaAgregarFinal(struct Nodo **P){
         printf("¿Ingresar otro numero? (S/N): ");
         scanf(" %c",&resp);
     }
-    system("clear");
+    system("cls");
 }
 
 //Algoritmo 2
 void imprimirNodosCirculares(struct Nodo *P){
-    system("clear");
+    system("cls");
     if(P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else {
         struct Nodo *Q = P;
@@ -48,9 +48,9 @@ void imprimirNodosCirculares(struct Nodo *P){
 //Algoritmo 3
 void eliminarNodoPrincipioCirc(struct Nodo **P){
     struct Nodo *Q = NULL;
-    system("clear");
+    system("cls");
     if(P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else if((*P)->Liga == *P){
         free(*P);
@@ -71,14 +71,14 @@ void buscaElementoImprimirDirecciones(struct Nodo *P){
     struct Nodo *Q = NULL, *R = NULL;
     int x;
     if(P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos en la lista.\n");
     }else if(P->Liga == P){
-        system("clear");
+        system("cls");
         imprimirNodosCirculares(P);
         printf("\nSolo hay un elemento en la lista.\n");
     }else{
-        system("clear");
+        system("cls");
         printf("Ingresa el elemento a buscar: ");
         scanf("%i",&x);
         Q = P;
@@ -110,7 +110,7 @@ void buscaElementoImprimirDirecciones(struct Nodo *P){
 void insertarNodoAntesDeOtroCir(struct Nodo **P){
     struct Nodo *Q = NULL, *S = NULL, *T = NULL;
     int x;
-    system("clear");
+    system("cls");
     printf("Inserta un nodo antes de un nodo especifico.\n");
 
     if (*P == NULL){ //No hay elementos en la lista -  agrega un nuevo elemento
@@ -129,7 +129,7 @@ void insertarNodoAntesDeOtroCir(struct Nodo **P){
         }
 
         if (Q->Info != x){ //No existe el elemento
-            system("clear");
+            system("cls");
             printf("\nEl nodo con informacion '%i' no existe.\n",x);
         } else if (Q == *P){ //Es el primer elemento
             if(Q->Liga != *P){
@@ -142,7 +142,7 @@ void insertarNodoAntesDeOtroCir(struct Nodo **P){
                 printf("Ingrese la informacion del nodo (entero): ");
                 scanf("%i",&T->Info);
                 T->Liga = *P;
-                system("clear");
+                system("cls");
             }else{
                 T = (struct Nodo*)malloc(sizeof(struct Nodo));
                 printf("Ingrese la informacion del nodo (entero): ");
@@ -150,7 +150,7 @@ void insertarNodoAntesDeOtroCir(struct Nodo **P){
                 (*P)->Liga = T;
                 T->Liga = *P;
                 *P = T;
-                system("clear");
+                system("cls");
             }
         } else { //Cualquier otro elemento
             T = (struct Nodo*)malloc(sizeof(struct Nodo));
@@ -158,7 +158,7 @@ void insertarNodoAntesDeOtroCir(struct Nodo **P){
             scanf("%i",&T->Info);
             S->Liga = T;
             T->Liga = Q;
-            system("clear");
+            system("cls");
         }
     }
 }
@@ -167,15 +167,15 @@ void insertarNodoAntesDeOtroCir(struct Nodo **P){
 void insertaNodoAlPrincipio(struct Nodo **P){
     struct Nodo *Q = NULL, *S = NULL;
     if(*P == NULL){
-        system("clear");
+        system("cls");
         *P = (struct Nodo*)malloc(sizeof(struct Nodo));
         
         printf("Ingrese la informacion del nodo (entero): ");
         scanf("%i",&(*P)->Info);
         (*P)->Liga = *P;
-        system("clear");
+        system("cls");
     } else {
-        system("clear");
+        system("cls");
         Q = (struct Nodo*)malloc(sizeof(struct Nodo));
 
         printf("Ingrese la informacion del nodo (entero): ");
@@ -189,7 +189,7 @@ void insertaNodoAlPrincipio(struct Nodo **P){
         }
         S->Liga = Q;
         *P = Q;
-        system("clear");
+        system("cls");
     }
 }
 
@@ -197,12 +197,12 @@ void insertaNodoAlPrincipio(struct Nodo **P){
 void eliminaUltimoNodoCir(struct Nodo **P){
     struct Nodo *Q = NULL, *R = NULL;
     if(*P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos en la lista.\n");
     }else if((*P)->Liga == *P){
         free(*P);
         *P = NULL;
-        system("clear");
+        system("cls");
     }else{
         Q = *P;
         while(Q->Liga != *P){
@@ -211,7 +211,7 @@ void eliminaUltimoNodoCir(struct Nodo **P){
         }
         R->Liga = *P;
         free(Q);
-        system("clear");
+        system("cls");
     }
 }
 
@@ -221,7 +221,7 @@ void eliminaUnoDespuesEspecifico(struct Nodo **P){
     int x;
 
     if(*P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos en la lista.\n");
     }else{
         printf("Ingresa el elemento a buscar: ");
@@ -229,14 +229,14 @@ void eliminaUnoDespuesEspecifico(struct Nodo **P){
         if((*P)->Liga == *P && x == (*P)->Info){
             free(*P);
             *P = NULL;
-            system("clear");
+            system("cls");
         }else{
             Q = *P;
             while(Q->Info != x && Q->Liga != *P){
                 Q = Q->Liga;
             }
             if(Q->Info != x){
-                system("clear");
+                system("cls");
                 printf("\nEl nodo con informacion '%i' no existe.\n",x);
             }else{
                 if(Q->Liga == *P){
@@ -248,7 +248,7 @@ void eliminaUnoDespuesEspecifico(struct Nodo **P){
                     Q->Liga = T->Liga;
                     free(T);
                 }
-                system("clear");
+                system("cls");
             }
         }
     }
@@ -259,7 +259,7 @@ void switchListasCirculares(){
     struct Nodo *P = NULL;
     int algoritmo;
 
-    system("clear");
+    system("cls");
     do{
         printf("\n(1) Algoritmo que crea una lista circular por el final\n");
         printf("(2) Algoritmo que imprime el contenido de una lista circular\n");
@@ -298,10 +298,10 @@ void switchListasCirculares(){
                 eliminaUnoDespuesEspecifico(&P);
             break;
             case 9:
-                system("clear");
+                system("cls");
             break;
             default:
-                system("clear");
+                system("cls");
                 printf("Opcion no valida.\n");
         }
     }while(algoritmo!=9);

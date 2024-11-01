@@ -3,7 +3,7 @@
 //Algoritmo 1
 void PushColaPrioridad(struct NodoPrioridad **P){
     int num;
-    system("clear");
+    system("cls");
     if(*P == NULL){ //No hay elementos 
         printf("Ingrese la cantidad de elementos a agregar: ");
         scanf("%i",&num);
@@ -45,7 +45,7 @@ void PushColaPrioridad(struct NodoPrioridad **P){
             Q->Liga = NULL;
         }
     }
-    system("clear");
+    system("cls");
 }
 
 //Algoritmo -
@@ -78,9 +78,9 @@ void PushColaPrioridad(struct NodoPrioridad **P){
 
 //Algoritmo 2
 void imprimirColaPrioridad(struct NodoPrioridad **P){
-    system("clear");
+    system("cls");
     if(*P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else {
         struct NodoPrioridad *Q;
@@ -109,7 +109,7 @@ void imprimirColaPrioridad(struct NodoPrioridad **P){
 void switchColasPrioridad(){
     struct NodoPrioridad *P = NULL;
     int subEstructura;
-    system("clear");
+    system("cls");
     do{
         printf("\n(1) Agregar elementos \n(2) Imprimir elementos \n(3) Salir \nSeleccione: ");
         scanf("%i",&subEstructura);
@@ -121,10 +121,10 @@ void switchColasPrioridad(){
                 imprimirColaPrioridad(&P);
             break;
             case 3:
-                system("clear");
+                system("cls");
             break;
             default:
-                system("clear");
+                system("cls");
                 printf("Opcion no valida.\n");
         }
     }while(subEstructura != 3);

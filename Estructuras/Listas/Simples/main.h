@@ -3,7 +3,7 @@
 //Algoritmo 1
 void ingresarNodoInicio(struct Nodo **P){   
   char resp;
-  system("clear");
+  system("cls");
   do {
       struct Nodo *Q = (struct Nodo*)malloc(sizeof(struct Nodo));
       printf("Ingresa la informacion del nodo (entero): ");
@@ -16,14 +16,14 @@ void ingresarNodoInicio(struct Nodo **P){
       scanf(" %c", &resp);
 
   } while (resp != 'n' && resp != 'N');
-  system("clear");
+  system("cls");
 }
 
 //Algoritmo 2
 void imprimirNodos(struct Nodo *P){
-  system("clear");
+  system("cls");
   if(P == NULL){
-    system("clear");
+    system("cls");
     printf("\nNo hay elementos.\n");
   }else {
     struct Nodo *Q = P;
@@ -40,7 +40,7 @@ void imprimirNodos(struct Nodo *P){
 void eliminarUltimoElemento(struct Nodo **P){
   struct Nodo *Q = NULL, *S = NULL;
   if(*P == NULL){
-    system("clear");
+    system("cls");
     printf("\nNo hay elementos que eliminar\n");
   }else{
     if((*P)->Liga == NULL){ //Solo hay un elemento
@@ -57,7 +57,7 @@ void eliminarUltimoElemento(struct Nodo **P){
       free(Q); 
       S->Liga = NULL;
     }
-    system("clear");
+    system("cls");
   }
 }
 
@@ -66,7 +66,7 @@ void creacionListaAgregarNodoFinal(struct Nodo **P){
   struct Nodo *Q = NULL;
   char resp;
   Q = (struct Nodo*)malloc(sizeof(struct Nodo));
-  system("clear");
+  system("cls");
   printf("Ingrese la informacion del nodo (entero): ");
   scanf("%i",&Q->Info);
   Q->Liga = NULL;
@@ -83,7 +83,7 @@ void creacionListaAgregarNodoFinal(struct Nodo **P){
     printf("¿Ingresar otro numero? (S/N): ");
     scanf(" %c",&resp);
   }
-  system("clear");
+  system("cls");
 }
 
 //Algoritmo 5
@@ -91,10 +91,10 @@ void buscarElementoLista(struct Nodo *P){
   struct Nodo *Q = NULL;
   int x;
   if(P == NULL){ //No hay elementos
-    system("clear");
+    system("cls");
     printf("\nNo hay elementos en la lista.\n");
   }else{ //Más de un elemento
-    system("clear");
+    system("cls");
     printf("Ingresa el elemento a buscar: ");
     scanf("%i",&x);
     Q = P;
@@ -126,7 +126,7 @@ void insertarNodoPrincipio(struct Nodo **P){
     Q->Liga = *P;
     *P = Q;
   }
-  system("clear");
+  system("cls");
 }
 
 //Algoritmo 7
@@ -146,23 +146,23 @@ void insertarNodoFinal(struct Nodo **P){
     scanf("%i",&Q->Liga->Info);
     Q->Liga->Liga = NULL;
   }
-  system("clear");
+  system("cls");
 }
 
 //Algoritmo 8
 void eliminarPrimerNodo(struct Nodo **P){
   if(*P == NULL){ //No hay elementos
-    system("clear");
+    system("cls");
     printf("\nNo hay elementos en la lista.\n");
   }else if((*P)->Liga == NULL){//Solo hay un elemento
     free(*P);
     *P = NULL;
-    system("clear");
+    system("cls");
   }else{ //Más de un elemento
     struct Nodo *Q = *P;
     *P = Q->Liga;
     free(Q);
-    system("clear");
+    system("cls");
   }
 }
 
@@ -173,7 +173,7 @@ void eliminaNodoEspecifico(struct Nodo **P){
   if(*P == NULL){
     printf("\nNo hay elementos en la lista.\n");
   } else {
-    system("clear");
+    system("cls");
     printf("Elimina un nodo especifico.");
     imprimirNodos(*P);
     printf("Ingresa el elemento a buscar: ");
@@ -207,7 +207,7 @@ void eliminaNodoEspecifico(struct Nodo **P){
 void insertarNodoAntesDeOtro(struct Nodo **P){
   struct Nodo *Q = NULL, *S = NULL, *T = NULL;
   int x;
-  system("clear");
+  system("cls");
   printf("Inserta un nodo antes de un nodo especifico.");
   imprimirNodos(*P);
   if (*P == NULL){ //No hay elementos en la lista -  agrega un nuevo elemento
@@ -226,7 +226,7 @@ void insertarNodoAntesDeOtro(struct Nodo **P){
     }
 
     if (Q->Info != x){ //No existe el elemento
-      system("clear");
+      system("cls");
       printf("\nEl nodo con informacion '%i' no existe.\n",x);
     } else if (Q == *P){ //Es el primer elemento
       S = (struct Nodo*)malloc(sizeof(struct Nodo));
@@ -234,14 +234,14 @@ void insertarNodoAntesDeOtro(struct Nodo **P){
       scanf("%i",&S->Info);
       S->Liga = Q;
       *P = S;
-      system("clear");
+      system("cls");
     } else { //Cualquier otro elemento
       T = (struct Nodo*)malloc(sizeof(struct Nodo));
       printf("Ingrese la informacion del nodo (entero): ");
       scanf("%i",&T->Info);
       S->Liga = T;
       T->Liga = Q;
-      system("clear");
+      system("cls");
     }
   }
 }
@@ -250,7 +250,7 @@ void insertarNodoAntesDeOtro(struct Nodo **P){
 void insertaNodoDespuesDeUnoEspecifico(struct Nodo **P){
   struct Nodo *Q = NULL, *S = NULL, *T = NULL;
   int x;
-  system("clear");
+  system("cls");
   printf("Inserta un nodo despues de un nodo especifico.");
   imprimirNodos(*P);
   if (*P == NULL){ //No hay elementos en la lista -  agrega un nuevo elemento
@@ -285,7 +285,7 @@ void insertaNodoDespuesDeUnoEspecifico(struct Nodo **P){
       S->Liga = T;
     }
   }
-  system("clear");
+  system("cls");
 }
 
 //Algoritmo 12
@@ -295,7 +295,7 @@ void eliminaUnoAntesDeOtro(struct Nodo **P){
   if (P == NULL){ //Lista vacia
     printf("\nNo hay elementos en la lista.\n");
   } else {
-    system("clear");
+    system("cls");
     printf("Elimina un nodo antes de un nodo especifico.");
     imprimirNodos(*P);
     printf("Ingresa el dato sucesor: ");
@@ -310,19 +310,19 @@ void eliminaUnoAntesDeOtro(struct Nodo **P){
     }
 
     if(Q->Info != x) { //No existe el elemento
-      system("clear");
+      system("cls");
       printf("\nEl nodo con informacion '%i' no existe.\n",x);
     }else if(Q == *P){ //Es el primer elemento
-      system("clear");
+      system("cls");
       printf("\nNo se puede eliminar antes del primer elemento\n");
     }else if((*P)->Liga == Q){ // Eliminar el primer elemento
       *P = Q;
       free(S);
-      system("clear");
+      system("cls");
     }else { //Eliminar cualquier otra posicion
       T->Liga = Q;
       free(S);
-      system("clear");
+      system("cls");
     }
   }
 }
@@ -334,7 +334,7 @@ void eliminaUnoDespuesDeOtro(struct Nodo *P){
   if(P == NULL){ //Lista vacia
     printf("\nNo hay elementos en la lista.\n");
   }else { //Más de un elemento
-    system("clear");
+    system("cls");
     printf("Elimina un nodo despues de un nodo especifico.");
     imprimirNodos(P);
     printf("Ingresa el elemento a buscar: ");
@@ -353,7 +353,7 @@ void eliminaUnoDespuesDeOtro(struct Nodo *P){
         S = Q->Liga;
         Q->Liga = S->Liga;
         free(S);
-        system("clear");
+        system("cls");
       }
     }
   }
@@ -362,7 +362,7 @@ void eliminaUnoDespuesDeOtro(struct Nodo *P){
 void switchListasSimples(){
   struct Nodo *P = NULL;
   int algoritmo;
-  system("clear");
+  system("cls");
   do{
       printf("\n(01) Algoritmo que crea una lista simple agregando cada nuevo nodo al principio de la lista\n");
       printf("(02) Algoritmo que imprime una lista simple\n");
@@ -421,7 +421,7 @@ void switchListasSimples(){
           eliminaUnoDespuesDeOtro(P);
         break;
         case 14:
-          system("clear");
+          system("cls");
         break;
         default:
           printf("Opcion no valida.\n");

@@ -3,7 +3,7 @@
 //Algoritmo 1
 void crearListaInsertaFinal(struct NodoDoble **P, struct NodoDoble **F){
     char resp;
-    system("clear");
+    system("cls");
     (*P) = (struct NodoDoble*)malloc(sizeof(struct NodoDoble));
     *F = *P;
     (*P)->LigaIzq = NULL;
@@ -13,7 +13,7 @@ void crearListaInsertaFinal(struct NodoDoble **P, struct NodoDoble **F){
     printf("¿Insertar más datos? (S/N): ");
     scanf(" %c",&resp);
     while(resp == 's' || resp == 'S'){
-        system("clear");
+        system("cls");
         (*F)->LigaDer = (struct NodoDoble*)malloc(sizeof(struct NodoDoble));
         (*F)->LigaDer->LigaIzq = *F;
         *F = (*F)->LigaDer;
@@ -23,14 +23,14 @@ void crearListaInsertaFinal(struct NodoDoble **P, struct NodoDoble **F){
         printf("¿Insertar más datos? (S/N): ");
         scanf(" %c",&resp);
     }
-    system("clear");
+    system("cls");
 }
 
 //Algoritmo 2
 void imprimirNodosPrincipioFinal(struct NodoDoble *P, struct NodoDoble *F, int defecto){
     struct NodoDoble *Q = NULL;
     int resp;
-    system("clear");
+    system("cls");
     if(P == NULL){
         printf("\nNo hay elementos.\n");
     }else if(P->LigaDer == NULL){
@@ -65,17 +65,17 @@ void imprimirNodosPrincipioFinal(struct NodoDoble *P, struct NodoDoble *F, int d
 //Algoritmo 3
 void eliminarUltimoElementoListaDoble(struct NodoDoble **P,struct NodoDoble **F){
     if(P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else if((*P)->LigaDer == NULL){
         free(*P);
         *P = NULL;
-        system("clear");
+        system("cls");
     }else{
         *F = (*F)->LigaIzq;
         free((*F)->LigaDer);
         (*F)->LigaDer = NULL;
-        system("clear");
+        system("cls");
     }
 }
 
@@ -85,10 +85,10 @@ void eliminarNodoEspecificoDoble(struct NodoDoble **P,struct NodoDoble **F){
     int x = 0;
 
     if(*P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else{
-        system("clear");
+        system("cls");
         Q = *P;
         imprimirNodosPrincipioFinal(*P,*F,1);
         printf("Inserta el elemento a buscar: ");
@@ -98,7 +98,7 @@ void eliminarNodoEspecificoDoble(struct NodoDoble **P,struct NodoDoble **F){
             Q = Q->LigaDer; 
         }
         if(Q->Info != x){
-            system("clear");
+            system("cls");
             printf("El elemento '%i' no existe.\n",x);
         }else if(Q == *P){
             *P = Q->LigaDer;
@@ -122,10 +122,10 @@ void eliminarNodoAntesDeOtro(struct NodoDoble **P){
     
     int x = 0;
     if(*P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else{
-        system("clear");
+        system("cls");
         Q = *P;
         imprimirNodosPrincipioFinal(*P,Q,1);
         printf("Inserta el elemento a buscar: ");
@@ -137,22 +137,22 @@ void eliminarNodoAntesDeOtro(struct NodoDoble **P){
         }
 
         if(Q->Info != x){
-            system("clear");
+            system("cls");
             printf("El elemento '%i' no existe.\n",x);
         }else if(Q == *P){
-            system("clear");
+            system("cls");
             printf("No se puede eliminar el nodo anterior al primero.\n");
         }else if (Q->LigaIzq == *P){
             Q->LigaIzq = NULL;
             free(*P);
             *P = Q;
-            system("clear");
+            system("cls");
         } 
         else {
             Q->LigaIzq = Q->LigaIzq->LigaIzq;
             free(Q->LigaIzq->LigaDer);
             Q->LigaIzq->LigaDer = Q;
-            system("clear");
+            system("cls");
         }
     }
 }
@@ -161,7 +161,7 @@ void eliminarNodoAntesDeOtro(struct NodoDoble **P){
 //Algoritmo 6
 void inserteNodoPrincipio(struct NodoDoble **P,struct NodoDoble **F){
     struct NodoDoble *Q = NULL;
-    system("clear");
+    system("cls");
     if(*P == NULL){
         (*P) = (struct NodoDoble *)malloc(sizeof(struct NodoDoble));
         (*P)->LigaIzq = NULL;
@@ -186,10 +186,10 @@ void insertaNodoDespuesDeNodo(struct NodoDoble *P,struct NodoDoble **F){
     int x;
     
     if (P == NULL){ //Si no hay elementos
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     } else {//Si hay elementos
-        system("clear");
+        system("cls");
         imprimirNodosPrincipioFinal(P,*F,1);
         printf("Inserta el elemento a buscar: ");
         scanf("%i",&x);
@@ -200,7 +200,7 @@ void insertaNodoDespuesDeNodo(struct NodoDoble *P,struct NodoDoble **F){
         }
 
         if (Q->Info != x){ //Si el elemento no existe
-            system("clear");
+            system("cls");
             printf("El elemento '%i' no existe.\n",x);
         } else {
             if (Q->LigaDer == NULL){ //Si el nodo es el ultimo
@@ -210,7 +210,7 @@ void insertaNodoDespuesDeNodo(struct NodoDoble *P,struct NodoDoble **F){
                 printf("Ingrese la informacion del nodo (entero): ");
                 scanf("%i",&(*F)->Info);
                 (*F)->LigaDer = NULL;
-                system("clear");
+                system("cls");
             } else { //Si el nodo no es el ultimo
                 U = (struct NodoDoble*)malloc(sizeof(struct NodoDoble));
                 U->LigaIzq = Q;
@@ -219,7 +219,7 @@ void insertaNodoDespuesDeNodo(struct NodoDoble *P,struct NodoDoble **F){
                 scanf("%i",&U->Info);
                 Q->LigaDer->LigaIzq = U;
                 Q->LigaDer = U;
-                system("clear");
+                system("cls");
             }
         }
     }
@@ -230,7 +230,7 @@ void esPalindromo(struct NodoDobleChar **P,struct NodoDobleChar **F){
     char palabra[50];
     int aux = 0;
 
-    system("clear");
+    system("cls");
     printf("Inserte la palabra: ");
     scanf("%s",palabra);
 
@@ -251,7 +251,7 @@ void esPalindromo(struct NodoDobleChar **P,struct NodoDobleChar **F){
 
     //Verificacion si es un palindromo
     if(*P == NULL){
-        system("clear");
+        system("cls");
         printf("No se puede comparar.\n");
     }else {
         struct NodoDobleChar *Q = *P;
@@ -302,7 +302,7 @@ void switchListasDobles(){
     struct NodoDobleChar *PC = NULL, *FC = NULL;
     int algoritmo;
 
-    system("clear");
+    system("cls");
     do{
         printf("\n(1) Algoritmo que crea una lista doblemente ligada insertando a cada elemento por el final\n");
         printf("(2) Algoritmo que imprime el contenido de una lista doblemente ligada\n");
@@ -341,7 +341,7 @@ void switchListasDobles(){
                 esPalindromo(&PC,&FC);
             break;
             case 9:
-                system("clear");
+                system("cls");
             break;
             default:
                 printf("Opcion no valida.\n");

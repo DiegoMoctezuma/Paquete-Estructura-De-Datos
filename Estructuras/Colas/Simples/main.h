@@ -3,7 +3,7 @@
 //Algoritmo 1
 void PushCS(struct Nodo **P){
     int num;
-    system("clear");
+    system("cls");
     if(*P == NULL){ //No hay elementos 
         printf("Ingrese la cantidad de elementos a agregar: ");
         scanf("%i",&num);
@@ -39,21 +39,21 @@ void PushCS(struct Nodo **P){
             Q->Liga = NULL;
         }
     }
-    system("clear");
+    system("cls");
 }
 
 //Algoritmo 2
 void POPCS(struct Nodo **P){
     int num;
     if(*P == NULL){ //No hay elementos
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos en la lista.\n");
     }else if((*P)->Liga == NULL){//Solo hay un elemento
         free(*P);
         *P = NULL;
-        system("clear");
+        system("cls");
     }else{ //Más de un elemento
-        system("clear");
+        system("cls");
         printf("Ingrese la cantidad de elementos a eliminar: ");
         scanf("%i",&num);
         struct Nodo *Q = NULL;
@@ -62,15 +62,15 @@ void POPCS(struct Nodo **P){
             *P = (*P)->Liga;
             free(Q);
         }
-        system("clear");
+        system("cls");
     }
 }
 
 //Algoritmo 2
 void imprimirCola(struct Nodo *P){
-    system("clear");
+    system("cls");
     if(P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else {
         struct Nodo *Q = P;
@@ -86,7 +86,7 @@ void imprimirCola(struct Nodo *P){
 void switchColasSimples(){
     struct Nodo *P = NULL;
     int algoritmo;
-    system("clear");
+    system("cls");
     do{
         printf("\n(1) PUSH\n");
         printf("(2) POP\n");
@@ -105,7 +105,7 @@ void switchColasSimples(){
                 imprimirCola(P);
             break;
             case 4:
-                system("clear");
+                system("cls");
             break;
             default:
             printf("Opcion no valida.\n");

@@ -25,7 +25,7 @@ void insercion(struct NodoDoble **Raiz, int dato){
 
 void insertarABB(struct NodoDoble **Raiz){
     int dato;
-    system("clear");
+    system("cls");
     printf("Inserta la informacion: ");
     scanf("%i",&dato);
     if(*Raiz == NULL){
@@ -50,19 +50,19 @@ void impresionABB(struct NodoDoble *Raiz){
 //Algoritmo 2 busqueda
 void busquedaSimple(struct NodoDoble *Raiz, int x){
     if(Raiz->Info == x){
-        system("clear");
+        system("cls");
         printf("El dato %i se encuentra en el arbol\n",x);
     }else{
         if(x < Raiz->Info){
             if(Raiz->LigaIzq == NULL){
-                system("clear");
+                system("cls");
                 printf("El dato %i no se encuentra en el arbol\n",x);
             }else{
                 busquedaSimple(Raiz->LigaIzq,x);
             }
         }else{
             if(Raiz->LigaDer == NULL){
-                system("clear");
+                system("cls");
                 printf("El dato %i no se encuentra en el arbol\n",x);
             }else{
                 busquedaSimple(Raiz->LigaDer,x);
@@ -72,7 +72,7 @@ void busquedaSimple(struct NodoDoble *Raiz, int x){
 }
 void buscarElemento(struct NodoDoble *Raiz){
     if(Raiz == NULL){
-        system("clear");
+        system("cls");
         printf("El arbol esta vacio\n");
     }else{
         int x;
@@ -217,14 +217,14 @@ void switchABB(){
             break;
             case 3:
                 //impresionABB(Raiz);
-                system("clear");
+                system("cls");
                 eliminaNodo(&Raiz);
             break;
             case 4:
-                system("clear");
+                system("cls");
                 impresionABB(Raiz);
             case 5:
-                system("clear");
+                system("cls");
             break;
             
         }

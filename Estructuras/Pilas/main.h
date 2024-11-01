@@ -17,14 +17,14 @@ void PUSH(struct Nodo **P){
         scanf("%i",&Q->Liga->Info);
         Q->Liga->Liga = NULL;
     }
-    system("clear");
+    system("cls");
 }
 
 //Algoritmo 2
 void POP(struct Nodo **P){
     struct Nodo *Q = NULL, *S = NULL;
     if(*P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos que eliminar\n");
     }else{
         if((*P)->Liga == NULL){ //Solo hay un elemento
@@ -41,15 +41,15 @@ void POP(struct Nodo **P){
             free(Q); 
             S->Liga = NULL;
         }
-        system("clear");
+        system("cls");
     }
 }
 
 //Algoritmo 3
 void imprimirPila(struct Nodo *P){
-    system("clear");
+    system("cls");
     if(P == NULL){
-        system("clear");
+        system("cls");
         printf("\nNo hay elementos.\n");
     }else {
         struct Nodo *Q = P;
@@ -66,7 +66,7 @@ void switchPilas(){
     struct Nodo *P = NULL;
     int algoritmo;
 
-    system("clear");
+    system("cls");
     do{
         printf("\n(1) PUSH\n");
         printf("(2) POP\n");
@@ -85,7 +85,7 @@ void switchPilas(){
                 imprimirPila(P);
             break;
             case 4:
-                system("clear");
+                system("cls");
             break;
             default:
             printf("Opcion no valida.\n");

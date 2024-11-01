@@ -4,7 +4,7 @@
 void cargarArbol(struct NodoDoble **Raiz){
     char resp;
 
-    system("clear");
+    system("cls");
     printf("Ingrese la informacion del nodo: ");
     scanf("%i",&(*Raiz)->Info);
 
@@ -78,29 +78,29 @@ void switchArbolesBinarios(){
                 creacionArbol(&Raiz);
             break;
             case 2:
-                system("clear");
+                system("cls");
                 printf("Preorden: ");
                 impresionPreOrden(Raiz);
                 printf("\n");
             break;
             case 3:
-                system("clear");
+                system("cls");
                 printf("Inorden: ");
                 impresionInOrden(Raiz);
                 printf("\n");
             break;
             case 4:
-                system("clear");
+                system("cls");
                 printf("Postorden: ");
                 impresionPostOrden(Raiz);
                 printf("\n");
             break;
             case 5:
-                system("clear");
+                system("cls");
                 liberarMemoria(Raiz);
             break;
             default:
-                system("clear");
+                system("cls");
                 printf("Opcion no valida.\n");
         }
     } while(subEstructura != 5);
