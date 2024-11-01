@@ -48,6 +48,41 @@ void impresionABB(struct NodoDoble *Raiz){
 }
 
 //Algoritmo 2 busqueda
+void busquedaSimple(struct NodoDoble *Raiz, int x){
+    if(Raiz->Info == x){
+        system("clear");
+        printf("El dato %i se encuentra en el arbol\n",x);
+    }else{
+        if(x < Raiz->Info){
+            if(Raiz->LigaIzq == NULL){
+                system("clear");
+                printf("El dato %i no se encuentra en el arbol\n",x);
+            }else{
+                busquedaSimple(Raiz->LigaIzq,x);
+            }
+        }else{
+            if(Raiz->LigaDer == NULL){
+                system("clear");
+                printf("El dato %i no se encuentra en el arbol\n",x);
+            }else{
+                busquedaSimple(Raiz->LigaDer,x);
+            }
+        }
+    }
+}
+void buscarElemento(struct NodoDoble *Raiz){
+    if(Raiz == NULL){
+        system("clear");
+        printf("El arbol esta vacio\n");
+    }else{
+        int x;
+        printf("Inserte el dato a buscar: ");
+        scanf("%i",&x);
+        busquedaSimple(Raiz,x);
+    }
+}
+
+//Algoritmo 3 eliminacion 
 void busqueda(struct NodoDoble *Raiz, int x, struct NodoDoble **nodoEncontrado, struct NodoDoble **nodoPadre) {
     *nodoEncontrado = NULL;
     *nodoPadre = NULL;
@@ -69,41 +104,13 @@ void busqueda(struct NodoDoble *Raiz, int x, struct NodoDoble **nodoEncontrado, 
         }
     }
 }
-
-// Función para buscar un elemento en el ABB
-void buscarElemento(struct NodoDoble *Raiz) {
-    if (Raiz == NULL) {
-        printf("El arbol esta vacio\n");
-    } else {
-        int x;
-        printf("Inserte el dato a buscar: ");
-        scanf("%i", &x);
-        struct NodoDoble *nodoEncontrado = NULL;
-        struct NodoDoble *nodoPadre = NULL;
-        busqueda(Raiz, x, &nodoEncontrado, &nodoPadre);
-        if (nodoEncontrado != NULL) {
-            printf("El dato %i se encuentra en el arbol\n", x);
-            if (nodoPadre != NULL) {
-                printf("El padre del nodo es %i\n", nodoPadre->Info);
-            } else {
-                printf("El nodo es la raiz del arbol\n");
-            }
-        } else {
-            printf("El dato %i no se encuentra en el arbol\n", x);
-        }
-    }
-}
-
-// Función que obtiene el mínimo de un árbol o sub-árbol
-struct NodoDoble* obtenerMinimo(struct NodoDoble* Nodo) {
+struct NodoDoble* obtenerMinimo(struct NodoDoble* Nodo) {// Función que obtiene el mínimo de un árbol o sub-árbol
     struct NodoDoble* Actual = Nodo;
     while (Actual && Actual->LigaIzq != NULL) {
         Actual = Actual->LigaIzq;
     }
     return Actual;
 }
-
-// Función para encontrar el sucesor de un nodo
 struct NodoDoble* encuentraSucesor(struct NodoDoble *Nodo, struct NodoDoble *Raiz) {
     // Si tiene hijo derecho
     if (Nodo->LigaDer != NULL) {
@@ -125,13 +132,7 @@ struct NodoDoble* encuentraSucesor(struct NodoDoble *Nodo, struct NodoDoble *Rai
     return Sucesor;
 }
 
-//Algoritmo 3 eliminacion 
 void eliminaNodo(struct NodoDoble **Raiz) {
-    if (*Raiz == NULL) {
-        printf("No hay nada que eliminar\n");
-        return;
-    }
-
     int x;
     printf("Inserte el dato a eliminar: ");
     scanf("%d", &x);
@@ -141,7 +142,7 @@ void eliminaNodo(struct NodoDoble **Raiz) {
     //AUX1 ES EL NODO A ELIMINAR, AUX2 ES SU PAPA
 
     if (AUX1 == NULL) {
-        printf("El dato no esta en el arbol :(\n");
+        printf("El dato no esta en el arbol\n");
         return;
     }
     // CASO 1: NODO TERMINAL (sin hijos)
@@ -187,7 +188,7 @@ void eliminaNodo(struct NodoDoble **Raiz) {
         //SE CAMBIA LA INFO DEL SUCESOR A LA POSICION DEL ELEMENTO A ELIMINAR
         AUX1->Info = sucesor->Info;
         //BORRAMOS EL SUCESOR
-        eliminaNodo(sucesor);
+        eliminaNodo(&sucesor);
     }
 }
 
@@ -217,7 +218,7 @@ void switchABB(){
             case 3:
                 //impresionABB(Raiz);
                 system("clear");
-                printf("En construccion\n");
+                eliminaNodo(&Raiz);
             break;
             case 4:
                 system("clear");
